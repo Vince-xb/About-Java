@@ -112,5 +112,30 @@ return new Person();
 }
 ```
 
+### Bean的初始化
 
+- if BeanFactoryAware -> setBeanFactory()
+- If xxxAware -> setXxx()
+- If BeanPsotProcessor -> postProcessBeforeInitialization()
+- if InitializingBean -> afterPropertiesSet()
+- if init-method -> 执行对应方法
+- if BeanPostProcessor -> postProcessAfterInitialization()
+- 当Bean销毁时，if DisposableBean -> destory()
+- 当Bean销毁时，ifdestory-method -> 执行对应方法
+
+
+
+## Sprinp AOP
+
+---
+
+AOP(Aspect-Orirnted Programming:面向切面编程)，能够将与业务无关，却为业务模块所共同调用的逻辑或责任，如事务处理、日志管理、权限控制等封装起来，减少系统的重复代码，降低模块间耦合度，提高可拓展性 可维护性。
+
+SpringAOP基于动态代理，如果代理的对象，实现了某个接口，那么SpringAOP会使用JDK PRoxy去创建对象。没有实现接口的对象，SpringAOP会使用Cglib生成代理对象的子类作为代理。
+
+
+
+*可通过@Order定义切面顺序
+
+*AspectJ比SpringAOP更强大，SpringAOP更简单
 
